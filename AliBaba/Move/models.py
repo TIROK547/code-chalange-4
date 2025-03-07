@@ -22,10 +22,6 @@ class Info(models.Model):
     date = models.DateTimeField()
 
 
-class Bus(models.Model):
-    passenger = models.ForeignKey(to= Passenger, on_delete= models.CASCADE)
-
-
 class Train(models.Model):
     is_from = models.CharField(max_length=20)
     to = models.CharField(max_length=20)
@@ -48,5 +44,4 @@ class Bus(models.Model):
     passengers = models.ForeignKey(to = Passenger, on_delete=models.CASCADE)
     duration = models.TimeField()
     name = models.CharField(max_length=20)
-    
     
