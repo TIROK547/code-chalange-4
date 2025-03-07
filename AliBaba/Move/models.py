@@ -14,8 +14,6 @@ class Passenger(models.Model):
     name = models.CharField(max_length=20)
     phone = models.IntegerField(max_length=20)
     info = models.ForeignKey(to=Reservation)
-    
-class Airplane(models.Model):pass
 
 
 class Info(models.Model):
@@ -29,7 +27,12 @@ class Bus(models.Model):
 
 
 class Train(models.Model):
-    Passenger = models.ForeignKey(to= Passenger, on_delete= models.CASCADE)
+    is_from = models.CharField(max_length=20)
+    to = models.CharField(max_length=20)
+    passengers = models.ForeignKey(to = Passenger, on_delete=models.CASCADE)
+    duration = models.TimeField()
+    name = models.CharField(max_length=20)
+
 
 class Airplane(models.Model):
     is_from = models.CharField(max_length=20)
@@ -39,6 +42,11 @@ class Airplane(models.Model):
     name = models.CharField(max_length=20)
 
 
-class Bus():
+class Bus(models.Model):
+    is_from = models.CharField(max_length=20)
+    to = models.CharField(max_length=20)
+    passengers = models.ForeignKey(to = Passenger, on_delete=models.CASCADE)
+    duration = models.TimeField()
+    name = models.CharField(max_length=20)
     
     
